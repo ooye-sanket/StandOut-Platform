@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cecde6; 
+            color: #1921ba; 
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #3f84df; /* Green submit button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0a1f7b; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>You selected 11th. Choose a stream:</h2>
+
+    <form action="/stream" method="post">
+        <input type="radio" name="stream_choice" value="1"> Science<br>
+        <input type="radio" name="stream_choice" value="2"> Arts<br>
+        <input type="radio" name="stream_choice" value="3"> Commerce<br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3371dc; /* Purple background color */
+            color: #fff; /* White text color */
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            height: 20%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff; /* White background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #6610f2; /* Purple submit button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5808e5; /* Darker purple on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>You selected Commerce. Choose a career path:</h1>
+    <form action="/career" method="post">
+        <input type="radio" name="career_choice" value="1"> Chartered Accountant (CA)<br>
+        <input type="radio" name="career_choice" value="2"> Accountant<br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

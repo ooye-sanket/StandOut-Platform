@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff7f50; /* Coral background color */
+            color: #fff; /* White text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff; /* White background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="radio"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #0e27a8; /* Coral submit button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #223fc3; /* Darker coral on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>You selected Arts. Choose a career path:</h1>
+    <form action="/career" method="post">
+        <input type="radio" name="career_choice" value="1"> Primary Teacher<br>
+        <input type="radio" name="career_choice" value="2"> Artist<br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

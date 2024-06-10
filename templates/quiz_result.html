@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Light gray background color */
+            color: #333; /* Dark gray text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #007bff; /* Blue question heading color */
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: 1px solid #ddd; /* Light gray horizontal line */
+            margin: 20px 0;
+        }
+
+        .total-results {
+            font-size: 1.2em;
+            color: #28a745; /* Green total results text color */
+        }
+
+        .no-quiz-data {
+            color: #dc3545; /* Red no quiz data text color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Results</h1>
+
+    {% if scores %}
+        {% for question_id, data in scores.items() %}
+            <h2>Question {{ loop.index }}</h2>
+            <strong>{{ data['question'] }}</strong>
+            <ul>
+                {% for option in data['options'] %}
+                    <li>{{ option }}</li>
+                {% endfor %}
+            </ul>
+            <p>User's Answer: {{ data['user_answer'] }}</p>
+            <p>Correct Answer: {% if data['is_correct'] %}{{ data['options'][data['is_correct'] - 1] }}{% else %}N/A{% endif %}</p>
+            <p>Status: {% if data['is_correct'] %}<span style="color: #28a745;">Correct</span>{% else %}<span style="color: #dc3545;">Incorrect</span>{% endif %}</p>
+            <hr>
+        {% endfor %}
+        <h2 class="total-results">Total Results</h2>
+        <p>Total Score: {{ total_score }}/{{ total_questions }}</p>
+    {% else %}
+        <p class="no-quiz-data">No quiz data available.</p>
+    {% endif %}
+</body>
+</html>

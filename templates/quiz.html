@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background color */
+            color: #343a40; /* Dark gray text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff; /* White background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+            width: 70%;
+        }
+
+        fieldset {
+            border: 1px solid #dee2e6; /* Light gray border color */
+            border-radius: 4px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff; /* Blue submit button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Programming Quiz</h1>
+    <form action="/" method="post">
+        {% for question_data in questions %}
+            {% set idx = loop.index %}
+            <fieldset>
+                <legend>{{ question_data[0] }}</legend>
+                {% for option in question_data[1] %}
+                    <label>
+                        <input type="radio" name="question_{{ idx }}" value="{{ loop.index }}">
+                        {{ option }}
+                    </label><br>
+                {% endfor %}
+            </fieldset>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+    </form>
+
+    {% if scores %}
+        <h2>Quiz Results</h2>
+        <ul>
+            {% for question_id, data in scores.items() %}
+                <li>
+                    <strong>{{ data['question'] }}</strong>
+                    <ul>
+                        <li>User's Answer: {{ data['user_answer'] }}</li>
+                        <li>Correct Answer: {{ data['options'][data['is_correct']|int - 1] }}</li>
+                        <li>Status: {% if data['is_correct'] %}Correct{% else %}Incorrect{% endif %}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
