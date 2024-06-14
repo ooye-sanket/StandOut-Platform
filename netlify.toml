@@ -1,9 +1,9 @@
 [build]
   command = "pip install -r requirements.txt"
-  publish = "app"  # Adjust this based on your Flask app structure
-  base = ""  # Adjust if your Flask app is in a subdirectory
+  publish = "app"
+  base = ""
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 200
