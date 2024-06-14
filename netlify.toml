@@ -1,9 +1,11 @@
 [build]
-  command = "pip install -r requirements.txt && flask run"  
-  publish = "public"  
+  publish = "public"
+  command = "pip install -r requirements.txt && flask run"
 
-[build.environment]
-  PYTHON_VERSION = "3.8" 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[plugins]]
-  package = "netlify-plugin-python"  
+  package = "netlify-plugin-python"
